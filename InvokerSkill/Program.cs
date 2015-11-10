@@ -120,7 +120,7 @@ namespace InvokerSkill
 
             #endregion
 
-            #region Get needed spells
+            
 
             if (startspell<10)
             {
@@ -169,7 +169,7 @@ namespace InvokerSkill
                 SpellStruct s;
                 var active1 = me.Spellbook.Spell4;
                 var active2 = me.Spellbook.Spell5;
-                if (Equals(spell[startspell], active1))
+                if (Equals(spell[startspell], active1)) //If the skill inside D
                 {
                     spell[startspell].UseAbility();
                     if (Utils.SleepCheck("spell1sleep"))
@@ -179,7 +179,7 @@ namespace InvokerSkill
                     }
 
                 }
-                else if(Equals(spell[startspell], active2))
+                else if(Equals(spell[startspell], active2)) //If the skill inside F
                 {
                     spell[startspell].UseAbility();
                     if (Utils.SleepCheck("spell2sleep"))
@@ -188,7 +188,7 @@ namespace InvokerSkill
                         Utils.Sleep(150, "spell2sleep");
                     }
                 }
-                else
+                else //If not inside D and F, invoke the skill
                 {
                     if (SpellInfo.TryGetValue(spell[startspell].Name, out s)) 
                     {
@@ -207,7 +207,7 @@ namespace InvokerSkill
                 startspell = 10;
             }
 
-            #endregion
+            
         }
 
         private static void Drawing_OnDraw(EventArgs args)
