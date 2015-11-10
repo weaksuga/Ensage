@@ -193,15 +193,11 @@ namespace InvokerSkill
                     if (SpellInfo.TryGetValue(spell[startspell].Name, out s)) 
                     {
                         var invoke = me.FindSpell("invoker_invoke");
-                        if (spell[startspell].Cooldown==0)
-                       {
-                            var spells = s.GetNeededAbilities();
-                            if (spells[0] != null) spells[0].UseAbility();
-                            if (spells[1] != null) spells[1].UseAbility();
-                            if (spells[2] != null) spells[2].UseAbility();
-                            invoke.UseAbility();
-
-                        }
+                        var spells = s.GetNeededAbilities();
+                        if (spells[0] != null) spells[0].UseAbility();
+                        if (spells[1] != null) spells[1].UseAbility();
+                        if (spells[2] != null) spells[2].UseAbility();
+                        invoke.UseAbility();
                     }
                 }
                 startspell = 10;
