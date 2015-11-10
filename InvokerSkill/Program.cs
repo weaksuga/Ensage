@@ -24,12 +24,10 @@ namespace InvokerSkill
         private static Hero me;
         private static Font FontArray;
         public static Dictionary<string, DotaTexture> _textureCache = new Dictionary<string, DotaTexture>();
-        public static Dictionary<Ability, string> _skillicon = new Dictionary<Ability, string>();
         public static float startposx = 653, startposy = 810;
         #endregion
 
         #region ChangeKeyOrSkill
-        //Change Hotkey here
         private static char firstkey = '1';
         private static char secondkey = '2';
         private static char thirdkey = '3';
@@ -40,17 +38,6 @@ namespace InvokerSkill
         private static char eighthkey = '8';
         private static char ninthkey = '9';
         private static char tenthkey = '0';
-        //Change skill position here
-        private static Ability firstskill = tornado;
-        private static Ability secondskill = chaosmeteor;
-        private static Ability thirdskill = emp;
-        private static Ability forthskill = deafblast;
-        private static Ability fifthskill = coldsnap;
-        private static Ability sixthskill = ghostwalk;
-        private static Ability seventhskill = forge;
-        private static Ability eighthskill = icewall;
-        private static Ability ninthskill = alacrity;
-        private static Ability tenthskill = ss;
         #endregion
 
         private static void Main()
@@ -64,16 +51,6 @@ namespace InvokerSkill
                         OutputPrecision = FontPrecision.Default,
                         Quality = FontQuality.Default
                     });
-            _skillicon.Add(tornado, "materials/ensage_ui/spellicons/invoker_tornado.vmat");
-            _skillicon.Add(chaosmeteor, "materials/ensage_ui/spellicons/invoker_chaos_meteor.vmat");
-            _skillicon.Add(emp, "materials/ensage_ui/spellicons/invoker_emp.vmat");
-            _skillicon.Add(deafblast, "materials/ensage_ui/spellicons/invoker_deafening_blast.vmat");
-            _skillicon.Add(coldsnap, "materials/ensage_ui/spellicons/invoker_cold_snap.vmat");
-            _skillicon.Add(ghostwalk, "materials/ensage_ui/spellicons/invoker_ghost_walk.vmat");
-            _skillicon.Add(forge, "materials/ensage_ui/spellicons/invoker_forge_spirit.vmat");
-            _skillicon.Add(icewall, "materials/ensage_ui/spellicons/invoker_ice_wall.vmat");
-            _skillicon.Add(alacrity, "materials/ensage_ui/spellicons/invoker_alacrity.vmat");
-            _skillicon.Add(ss, "materials / ensage_ui / spellicons / invoker_sun_strike.vmat");
             Game.OnUpdate += Game_OnUpdate;
             _loaded = false;
             Game.OnWndProc += Game_OnWndProc;
@@ -188,16 +165,16 @@ namespace InvokerSkill
                     SpellInfo.Add(emp.Name, new SpellStruct(w, w, w));
                     SpellInfo.Add(alacrity.Name, new SpellStruct(w, w, e));
                     SpellInfo.Add(chaosmeteor.Name, new SpellStruct(e, e, w));
-                    spell[1] = firstskill;
-                    spell[2] = secondskill;
-                    spell[3] = thirdskill;
-                    spell[4] = forthskill;
-                    spell[5] = fifthskill;
-                    spell[6] = sixthskill;
-                    spell[7] = seventhskill;
-                    spell[8] = eighthskill;
-                    spell[9] = ninthskill;
-                    spell[0] = tenthskill;
+                    spell[1] = tornado;
+                    spell[2] = chaosmeteor;
+                    spell[3] = emp;
+                    spell[4] = deafblast;
+                    spell[5] = coldsnap;
+                    spell[6] = ghostwalk;
+                    spell[7] = forge;
+                    spell[8] = icewall;
+                    spell[9] = alacrity;
+                    spell[0] = ss;
                     spell[10] = chaosmeteor; //extra one just for checking condition, will not be used
                 }
 
@@ -258,16 +235,16 @@ namespace InvokerSkill
                 spellcd[i] = spell[i].Cooldown;
                 spelltotalcd[i] = spell[i].CooldownLength;
             }
-            Drawing.DrawRect(new Vector2(startposx, startposy), new Vector2(50, 50), GetTexture(_skillicon[firstskill]));
-            Drawing.DrawRect(new Vector2(startposx + 50, startposy), new Vector2(50, 50), GetTexture(_skillicon[secondskill]));
-            Drawing.DrawRect(new Vector2(startposx + 100, startposy), new Vector2(50, 50), GetTexture(_skillicon[thirdskill]));
-            Drawing.DrawRect(new Vector2(startposx + 150, startposy), new Vector2(50, 50), GetTexture(_skillicon[forthskill]));
-            Drawing.DrawRect(new Vector2(startposx + 200, startposy), new Vector2(50, 50), GetTexture(_skillicon[fifthskill]));
-            Drawing.DrawRect(new Vector2(startposx + 250, startposy), new Vector2(50, 50), GetTexture(_skillicon[sixthskill]));
-            Drawing.DrawRect(new Vector2(startposx + 300, startposy), new Vector2(50, 50), GetTexture(_skillicon[seventhskill]));
-            Drawing.DrawRect(new Vector2(startposx + 350, startposy), new Vector2(50, 50), GetTexture(_skillicon[eighthskill]));
-            Drawing.DrawRect(new Vector2(startposx + 400, startposy), new Vector2(50, 50), GetTexture(_skillicon[ninthskill]));
-            Drawing.DrawRect(new Vector2(startposx + 450, startposy), new Vector2(50, 50), GetTexture(_skillicon[tenthskill]));
+            Drawing.DrawRect(new Vector2(startposx, startposy), new Vector2(50, 50), GetTexture("materials/ensage_ui/spellicons/invoker_tornado.vmat"));
+            Drawing.DrawRect(new Vector2(startposx + 50, startposy), new Vector2(50, 50), GetTexture("materials/ensage_ui/spellicons/invoker_chaos_meteor.vmat"));
+            Drawing.DrawRect(new Vector2(startposx + 100, startposy), new Vector2(50, 50), GetTexture("materials/ensage_ui/spellicons/invoker_emp.vmat"));
+            Drawing.DrawRect(new Vector2(startposx + 150, startposy), new Vector2(50, 50), GetTexture("materials/ensage_ui/spellicons/invoker_deafening_blast.vmat"));
+            Drawing.DrawRect(new Vector2(startposx + 200, startposy), new Vector2(50, 50), GetTexture("materials/ensage_ui/spellicons/invoker_cold_snap.vmat"));
+            Drawing.DrawRect(new Vector2(startposx + 250, startposy), new Vector2(50, 50), GetTexture("materials/ensage_ui/spellicons/invoker_ghost_walk.vmat"));
+            Drawing.DrawRect(new Vector2(startposx + 300, startposy), new Vector2(50, 50), GetTexture("materials/ensage_ui/spellicons/invoker_forge_spirit.vmat"));
+            Drawing.DrawRect(new Vector2(startposx + 350, startposy), new Vector2(50, 50), GetTexture("materials/ensage_ui/spellicons/invoker_ice_wall.vmat"));
+            Drawing.DrawRect(new Vector2(startposx + 400, startposy), new Vector2(50, 50), GetTexture("materials/ensage_ui/spellicons/invoker_alacrity.vmat"));
+            Drawing.DrawRect(new Vector2(startposx + 450, startposy), new Vector2(50, 50), GetTexture("materials/ensage_ui/spellicons/invoker_sun_strike.vmat"));
 
 
             //draw box
@@ -340,16 +317,16 @@ namespace InvokerSkill
             if (Drawing.Direct3DDevice9 == null || Drawing.Direct3DDevice9.IsDisposed || !Game.IsInGame)
                 return;
             if (ObjectMgr.LocalHero.ClassID != ClassID.CDOTA_Unit_Hero_Invoker) return;
-            DrawShadowText("1", (int)startposx + 3, (int)startposy + 1, Color.LightCyan, FontArray);
-            DrawShadowText("2", (int)startposx + 53, (int)startposy + 1, Color.LightCyan, FontArray);
-            DrawShadowText("3", (int)startposx + 103, (int)startposy + 1, Color.LightCyan, FontArray);
-            DrawShadowText("4", (int)startposx + 153, (int)startposy + 1, Color.LightCyan, FontArray);
-            DrawShadowText("5", (int)startposx + 203, (int)startposy + 1, Color.LightCyan, FontArray);
-            DrawShadowText("6", (int)startposx + 253, (int)startposy + 1, Color.LightCyan, FontArray);
-            DrawShadowText("7", (int)startposx + 303, (int)startposy + 1, Color.LightCyan, FontArray);
-            DrawShadowText("8", (int)startposx + 353, (int)startposy + 1, Color.LightCyan, FontArray);
-            DrawShadowText("9", (int)startposx + 403, (int)startposy + 1, Color.LightCyan, FontArray);
-            DrawShadowText("0", (int)startposx + 453, (int)startposy + 1, Color.LightCyan, FontArray);
+            DrawShadowText(firstkey.ToString(), (int)startposx + 3, (int)startposy + 1, Color.LightCyan, FontArray);
+            DrawShadowText(secondkey.ToString(), (int)startposx + 53, (int)startposy + 1, Color.LightCyan, FontArray);
+            DrawShadowText(thirdkey.ToString(), (int)startposx + 103, (int)startposy + 1, Color.LightCyan, FontArray);
+            DrawShadowText(forthkey.ToString(), (int)startposx + 153, (int)startposy + 1, Color.LightCyan, FontArray);
+            DrawShadowText(fifthkey.ToString(), (int)startposx + 203, (int)startposy + 1, Color.LightCyan, FontArray);
+            DrawShadowText(sixthkey.ToString(), (int)startposx + 253, (int)startposy + 1, Color.LightCyan, FontArray);
+            DrawShadowText(seventhkey.ToString(), (int)startposx + 303, (int)startposy + 1, Color.LightCyan, FontArray);
+            DrawShadowText(eighthkey.ToString(), (int)startposx + 353, (int)startposy + 1, Color.LightCyan, FontArray);
+            DrawShadowText(ninthkey.ToString(), (int)startposx + 403, (int)startposy + 1, Color.LightCyan, FontArray);
+            DrawShadowText(tenthkey.ToString(), (int)startposx + 453, (int)startposy + 1, Color.LightCyan, FontArray);
         }
         public static DotaTexture GetTexture(string name)
         {
