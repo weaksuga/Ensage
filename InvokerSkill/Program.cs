@@ -27,7 +27,7 @@ namespace InvokerSkill
         public static float startposx = 653, startposy = 810;
         #endregion
 
-        #region ChangeKeyOrSkill
+        #region ChangeKey
         private static char firstkey = '1';
         private static char secondkey = '2';
         private static char thirdkey = '3';
@@ -165,6 +165,7 @@ namespace InvokerSkill
                     SpellInfo.Add(emp.Name, new SpellStruct(w, w, w));
                     SpellInfo.Add(alacrity.Name, new SpellStruct(w, w, e));
                     SpellInfo.Add(chaosmeteor.Name, new SpellStruct(e, e, w));
+                    #region ChangeSkill
                     spell[1] = tornado;
                     spell[2] = chaosmeteor;
                     spell[3] = emp;
@@ -175,6 +176,7 @@ namespace InvokerSkill
                     spell[8] = icewall;
                     spell[9] = alacrity;
                     spell[0] = ss;
+                    #endregion
                     spell[10] = chaosmeteor; //extra one just for checking condition, will not be used
                 }
 
@@ -235,6 +237,7 @@ namespace InvokerSkill
                 spellcd[i] = spell[i].Cooldown;
                 spelltotalcd[i] = spell[i].CooldownLength;
             }
+            #region ChangeSkillIcon
             Drawing.DrawRect(new Vector2(startposx, startposy), new Vector2(50, 50), GetTexture("materials/ensage_ui/spellicons/invoker_tornado.vmat"));
             Drawing.DrawRect(new Vector2(startposx + 50, startposy), new Vector2(50, 50), GetTexture("materials/ensage_ui/spellicons/invoker_chaos_meteor.vmat"));
             Drawing.DrawRect(new Vector2(startposx + 100, startposy), new Vector2(50, 50), GetTexture("materials/ensage_ui/spellicons/invoker_emp.vmat"));
@@ -245,7 +248,7 @@ namespace InvokerSkill
             Drawing.DrawRect(new Vector2(startposx + 350, startposy), new Vector2(50, 50), GetTexture("materials/ensage_ui/spellicons/invoker_ice_wall.vmat"));
             Drawing.DrawRect(new Vector2(startposx + 400, startposy), new Vector2(50, 50), GetTexture("materials/ensage_ui/spellicons/invoker_alacrity.vmat"));
             Drawing.DrawRect(new Vector2(startposx + 450, startposy), new Vector2(50, 50), GetTexture("materials/ensage_ui/spellicons/invoker_sun_strike.vmat"));
-
+            #endregion
 
             //draw box
             Drawing.DrawRect(new Vector2(startposx, startposy), new Vector2(50, 50), new Color(0, 0, 0, 150), true);
