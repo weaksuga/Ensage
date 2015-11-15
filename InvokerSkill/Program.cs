@@ -79,7 +79,7 @@ namespace InvokerSkill
         {
             if (Game.IsChatOpen)
                 return;
-        //    if(Game.IsKeyDown(0x11)){
+            if(Game.IsKeyDown(0x11)){
             if (args.WParam == firstkey)
                 startspell = 1;
             else if (args.WParam == secondkey)
@@ -101,7 +101,7 @@ namespace InvokerSkill
             else if (args.WParam == tenthkey)
                 startspell = 0;
             else startspell = 10;
-           // }
+            }
         }
 
         private static void Game_OnUpdate(EventArgs args)
